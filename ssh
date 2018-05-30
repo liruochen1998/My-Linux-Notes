@@ -1,0 +1,9 @@
+using ssh(security shell) to connect server
+
+in local terminal:
+
+ssh -l root ip-address(149.28.204.195)
+
+
+
+
