@@ -1,0 +1,32 @@
+build jdk environment in linux server(CentOS 7)
+
+1. make a directory in linux server 
+mkdir /usr/java
+cd /usr/java
+
+2. download the jdk and unzip
+one way to do it is to download it from the official website to your computer and upload it to your linux server using scp
+
+move jdk-10.0.1.tar.gz to the java directory and unzip using:
+
+tar -zxvf jdk-10.0.1.tar.gz
+
+3. setup the variable in the environment
+in the java directory:
+vi /etc/profile
+
+add:
+#set java environment
+JAVA_HOME=/usr/java/jdk-10.0.1
+JRE_HOME=/usr/java/jdk-10.0.1/jre
+CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+export JAVA_HOME JRE_HOME CLASS_PATH PATH
+
+refresh it:
+source /etc/profile
+
+4. check the status:
+java -version
+
+
