@@ -1,0 +1,10 @@
+login mysql:
+
+without password:
+mysql
+
+with password:
+mysql -u root -p
+and then type in the password
+
+
