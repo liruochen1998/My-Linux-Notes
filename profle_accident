@@ -1,0 +1,10 @@
+if you accidently modify the /etc/profile, expecially the PATH in it,
+you may lose all the command in terminal except cd.
+
+solution:
+
+export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
+
+use this can help you recover most of the command and you should modify the PATH immediately.
+
+
