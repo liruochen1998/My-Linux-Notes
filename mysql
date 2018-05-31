@@ -7,4 +7,42 @@ with password:
 mysql -u root -p
 and then type in the password
 
+install mysql instruction:
+
+at the very first time, I refer to https://blog.csdn.net/u011019141/article/details/51280599, but it didn't work well. 
+
+1. download mysql and send it to your server.
+2. install mysql in /usr/local/mysql
+3. in terminal, try to run "mysql" but it didn't work: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)  
+
+in the website, it says that we can solve it using:
+service mysql start  
+/etc/init.d/mysql start  
+
+but it seems that these two does not work for me and they report the same error, and I tried a really long time, finding a solution for it.
+
+I downloaded mariaDB, after searching, we can consider it as a new version of mysql.
+
+then I refer to this site: https://www.cnblogs.com/lushengle/p/7607953.html (perhaps, something like this)
+
+yum install -y mariadb-server
+systemctl start mariadb.service
+systemctl enable mariadb.service
+// the other two steps I didn't try
+
+then I refer to this site: https://blog.csdn.net/ghost_leader/article/details/53366942
+
+at this time, if I type in "mysql", I will be in the mariaDB service but other command seems not work well.
+
+1. start mariadb
+systemctl start mariadb
+2. change password
+mysqladmin -uroot -p password your-password
+(and press enter when it says "Enter password:)
+3. log in mariadb using password
+mysql -u root -p
+at this time, only using "mysql" won't work.
+
+(further questions refer to this site, very useful)
 
