@@ -1,0 +1,38 @@
+using shadowrocketsR to connect a server
+
+referencec link: https://www.i5seo.com/mac-build-shadowsocksr-ssr.html
+
+1. buy a server 
+recommendation: Vultr
+
+2. setup firewalls (not finished, still confused)
+
+3. connect to the server using local terminal 
+
+ssh -l root ip-address
+ssh -t root@ip-address -p port
+
+4. install ssr
+
+yum update -y
+yum install unzip zip -y
+yum install wget -y
+wget -N –no-check-certificate https://raw.githubusercontent.com/Moexin/Easy-SSR-Bash-Python-The-Final/master/ssr.zip
+unzip ssr.zip
+cd SSR*
+bash install.sh
+
+5. install bbr to boost up the speed
+
+wget https://github.com/teddysun/across/raw/master/bbr.sh
+chmod +x bbr.sh
+./bbr.sh
+
+6. potential problem
+
+can't connect to the server:
+
+ssh-keygen -R ip-address
+
+
+
