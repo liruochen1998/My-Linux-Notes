@@ -1,0 +1,105 @@
+so excited that I demo tomcat test successfully.
+
+I use the ali instructions at first, but I can't see the "tomcat test" text in on the ip:8080. Then I try several other instructions. something when I try ./startup.sh and ./shutdown.sh and the route is not right. I deleted the tomcat to doit again. After editing the etc profile, the problem is still there and thit time I even can't see the port 8080 running. Thus, I follow the ali instruction again and I succeeded.
+
+Instructions:
+
+0. preparation:
+close the firewall:
+
+systemctl stop firewalld.service
+systemctl disable firewalld.service (disable the autostart of firewall)
+
+useradd www (add a general user named www)
+
+in the firewall settings of the server, make sure port 8080 is accessible.
+
+mkdir -p /data/wwwroot/default (make the root direction for the web)
+
+make a new test page for Tomcat:
+echo Tomcat test > /data/wwwroot/default/index.jsp
+chown -R www.www /data/wwwroot
+
+
+1. JDK part:
+	1. install jdk (already done before)
+	2. edit the environment and save in /etc/profile:
+export JAVA_HOME=/usr/java/jdk1.8.0_141
+export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
+	3. check the java version whether it is correctly installed.
+
+2. Tomcat part:
+	1.unzip and install tomcat and make the route /usr/local/tomcat/
+	2.set the user authority:
+chown -R www.www /usr/local/tomcat/
+	3.setup server.xml:
+		in /usr/local/tomcat/conf/, make a new file called server.xml (maybe backup the previous one that has the same name) 
+		copy the following to server.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+ <Server port="8006" shutdown="SHUTDOWN">
+<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
+<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
+<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
+<Listener className="org.apache.catalina.core.AprLifecycleListener"/>
+<GlobalNamingResources>
+  <Resource name="UserDatabase" auth="Container"
+            type="org.apache.catalina.UserDatabase"
+            description="User database that can be updated and saved"
+            factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+            pathname="conf/tomcat-users.xml"/>
+</GlobalNamingResources>
+<Service name="Catalina">
+  <Connector port="8080"
+            protocol="HTTP/1.1"
+            connectionTimeout="20000"
+            redirectPort="8443"
+            maxThreads="1000"
+            minSpareThreads="20"
+            acceptCount="1000"
+            maxHttpHeaderSize="65536"
+            debug="0"
+            disableUploadTimeout="true"
+            useBodyEncodingForURI="true"
+            enableLookups="false"
+            URIEncoding="UTF-8"/>
+  <Engine name="Catalina" defaultHost="localhost">
+    <Realm className="org.apache.catalina.realm.LockOutRealm">
+      <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+             resourceName="UserDatabase"/>
+    </Realm>
+    <Host name="localhost" appBase="/data/wwwroot/default" unpackWARs="true" autoDeploy="true">
+      <Context path="" docBase="/data/wwwroot/default" debug="0" reloadable="false" crossContext="true"/>
+      <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+        prefix="localhost_access_log." suffix=".txt" pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+    </Host>
+  </Engine>
+</Service>
+</Server>
+
+3. other part:
+	1. set JVM memory parameter:
+		create /usr/local/tomcat/bin/setenv.sh, and add the following to it:
+JAVA_OPTS=’-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8’
+
+	2. install tomcat autostart script:
+		1. download: wget https://github.com/lj2007331/oneinstack/raw/master/init.d/Tomcat-init
+		2. rename: mv Tomcat-init /etc/init.d/tomcat
+		3. add authority: chmod +x /etc/init.d/tomcat
+		4. start the JAVA_HOME script:sed -i 's@^export JAVA_HOME=.*@export JAVA_HOME=/usr/java/jdk1.8.0_141@' /etc/init.d/tomcat
+		5. setup the autostart:
+chkconfig --add tomcat
+chkconfig tomcat on
+
+4. run tomcat test:
+service tomcat start
+
+in the browser: ip:8080(port)
+
+
+
+notes: port can be modified in server.xml <connector=8080>
+check whether port is occupied: lsof -i:8080
+check all the port: netstat -nultp 
+		netstat -anp |grep (your-port)
+
