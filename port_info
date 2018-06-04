@@ -3,3 +3,11 @@
 9090 Tomcat
 1 2 3 4 ssr user 
 
+
+
+80: Apache httpd wordpress
+8080: Tomcat javaweb
+
+
+nginx should be at 80 as well but was occupied 
+
