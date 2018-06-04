@@ -103,3 +103,13 @@ check whether port is occupied: lsof -i:8080
 check all the port: netstat -nultp 
 		netstat -anp |grep (your-port)
 
+
+
+!!!IMPORTANT
+solution to CAN connect but CANNOT load in the localhost:8080
+
+stop the firewall service:
+
+[root@localhost ~]# service iptables stop  
+
+
