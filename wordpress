@@ -1,0 +1,44 @@
+wordpress setup
+
+reference: https://blog.csdn.net/webyzx/article/details/78666344 (very useful)
+
+1. install apps
+yum install -y httpd php php-fpm mysql mysql-server php-mysql  
+
+2. start the apps
+service httpd start
+service mysqld start  
+service php-fpm start  
+
+3. visit the ip to check
+
+4. mysql setup
+
+5. wordpress:
+wget http://wordpress.org/latest.tar.gz  
+
+mkdir /var/blog  
+
+tar –zxf latest.tar.gz -C /var/blog  
+
+chown –R apache:apache /var/blog  
+
+setup the environment:
+/etc/httpd/conf/httpd.conf (however, I use the directory /etc/httpd/httpd.conf instead, which is the LAMP setup directory)
+
+add:
+<VirtualHost *:80>  
+    ServerName 域名  
+    DocumentRoot "/var/blog/wordpress"  
+    <Directory "/var/blog/wordpress">  
+        Options Indexes FollowSymLinks  
+        AllowOverride None        
+        Order deny,allow  
+        Allow from all  
+    </Directory>  
+    ErrorLog logs/blog-error.log  
+    CustomLog logs/blog-access.log common  
+  
+</VirtualHost>  
+
+restart and visit the ip
