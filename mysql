@@ -46,3 +46,51 @@ at this time, only using "mysql" won't work.
 
 (further questions refer to this site, very useful)
 
+
+Update:
+I had problem registing wordpress, connecting to the database error, so I install mysql again, using version 5.7 from aliyun instruction: https://help.aliyun.com/document_detail/50774.html?spm=a2c4g.11186623.6.766.LgY4mw
+
+1. check whether you have installed mariaDB or mySQL:
+rpm -qa | grep mysql
+rpm -qa | grep mariadb
+
+2. delete the current version:
+rpm -e 软件名    #注意：这里的软件名必须包含软件的版本信息，如rpm -e mariadb-libs-5.5.52-1.el7.x86_64。一般使用此命令即可卸载成功。
+rpm -e --nodeps 软件名   #卸载不成功时使用此命令强制卸载
+
+3. install mySQL again:
+yum install -y libaio-*                         #安装依赖
+mkdir -p /usr/local/mysql
+cd /usr/local/src
+wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/mysql/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz 
+tar -xzvf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz
+mv mysql-5.7.17-linux-glibc2.5-x86_64/* /usr/local/mysql/
+
+4. add user and group:
+groupadd mysql
+useradd -g mysql -s /sbin/nologin mysql
+
+5. initialize the database:
+/usr/local/mysql/bin/mysqld --initialize-insecure --datadir=/usr/local/mysql/data/ --user=mysql
+
+6. add authority:
+chown -R mysql:mysql /usr/local/mysql
+
+7. setup autostart:
+cd /usr/local/mysql/support-files/
+cp mysql.server  /etc/init.d/mysqld
+chmod +x /etc/init.d/mysqld             # 添加执行权限
+vim /etc/rc.d/rc.local
+add /etc/init.d/mysqld start in it.
+
+8. setup environment:
+vi /root/.bash_profile
+将 PATH=$PATH:$HOME/bin:/usr/local/apache/bin 修改为 PATH=$PATH:$HOME/bin:/usr/local/apache/bin:/usr/local/mysql/bin:/usr/local/mysql/bin。
+说明：此处是在编译安装 Apache的环境变量的基础上再进行修改。
+
+source /root/.bash_profile
+
+9. start mySQL:
+/etc/init.d/mysqld start
+
+10. setup the password and the following steps...
