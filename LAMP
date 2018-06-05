@@ -148,3 +148,9 @@ mv phpMyAdmin-4.1.8-all-languages/*  /usr/local/apache/htdocs/phpmyadmin
 
 test:
 http://实例公网 IP/phpmyadmin
+
+
+Note:
+Currently, WordPress and PHPMyAdmin can only have one, if I want to have phpmyadmin again, modify /etc/httpd/httpd.conf and restart apache: /usr/local/apache/bin/apachectl restart
+
+also, some files are in /usr/local/apache/htdocs/
