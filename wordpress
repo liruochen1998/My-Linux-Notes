@@ -42,3 +42,16 @@ add:
 </VirtualHost>  
 
 restart and visit the ip
+
+
+
+When I visit the ip, I need to setup the database in wordpress. 
+The info is in wp-config.php
+
+At first, I can't connect to the database and all the solution doesn't work. 
+Then I deleted the database, which is the latest mariaDB and installed the aliyun mysql, which is version 5.7. And it worked.
+
+Also, when I use mariaDB, the myphpadmin doesn't work, but when I use 5.7 mysql,the phpmyadmin works.
+
+mysql reference:
+https://help.aliyun.com/document_detail/50774.html?spm=a2c4g.11186623.6.766.LgY4mw
