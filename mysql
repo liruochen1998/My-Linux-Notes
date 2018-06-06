@@ -105,3 +105,7 @@ ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mys
 also, very important file:
 /etc/my.cnf, may be added by myself and after reboot, it works well.
 
+
+Autostart setup:
+https://www.cnblogs.com/sunny3096/p/7954146.html
+
