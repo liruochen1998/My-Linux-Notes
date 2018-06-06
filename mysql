@@ -102,4 +102,6 @@ Today I can't log into wordpress, saying "can't connect to the database", and wh
 error include: ERROR! The server quit without updating PID file (/usr/local/mysql/data/ruochen_test.pid).
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
 
+also, very important file:
+/etc/my.cnf, may be added by myself and after reboot, it works well.
 
