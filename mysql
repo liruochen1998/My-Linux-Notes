@@ -94,3 +94,12 @@ source /root/.bash_profile
 /etc/init.d/mysqld start
 
 10. setup the password and the following steps...
+
+
+June, 6th, 2018:
+Today I can't log into wordpress, saying "can't connect to the database", and when I check mysql, I can't use it anymore, I use several ways, but none of them works. Thus, I reboot the server... It works. 
+
+error include: ERROR! The server quit without updating PID file (/usr/local/mysql/data/ruochen_test.pid).
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+
+
