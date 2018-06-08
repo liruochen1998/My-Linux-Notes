@@ -1,3 +1,7 @@
+javaweb instruction: 
+https://blog.csdn.net/u011019141/article/details/51280599
+
+
 so excited that I demo tomcat test successfully.
 
 I use the ali instructions at first, but I can't see the "tomcat test" text in on the ip:8080. Then I try several other instructions. something when I try ./startup.sh and ./shutdown.sh and the route is not right. I deleted the tomcat to doit again. After editing the etc profile, the problem is still there and thit time I even can't see the port 8080 running. Thus, I follow the ali instruction again and I succeeded.
