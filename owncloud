@@ -1,0 +1,88 @@
+owncloud:
+
+a very complicated process to install and configure owncloud
+
+environment: LAMP recommend php5 instead of php7
+
+1. download owncloud
+don't remember how do I got version, but it doesn't matter
+some reference:
+wget https://download.owncloud.org/community/owncloud-9.1.4.zip
+
+2. unzip and move it to the direction:
+/usr/local/apache/htdocs/owncloud, which is the starting directory of apache server
+
+3. create a database for owncloud:
+$ sudo mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE owncloud;
+MariaDB [(none)]> GRANT ALL ON owncloud.* to 'owncloud'@'localhost' IDENTIFIED BY 'liruochen1998';
+MariaDB [(none)]> FLUSH PRIVILEGES;
+MariaDB [(none)]> exit
+
+4. create an account on the server ip:80/owncloud and connect it to the database
+
+
+Problem solving:
+
+- Owncloud: can't write into "config" directory!
+solution: https://blog.csdn.net/xuhuiyue/article/details/73554909
+chown –R apache:apache $owncloud_path  
+$chmod –R 777 $owncloud_path  
+
+- Owncloud: can't read the modules:
+zip module, gd module, cURL module, intl module
+This is very complicated to solve
+
+At first, my php is version 7, and I can't install intl.so because some route of some files were modified by php7, so I try to went back to php5, and it takes a lot of time. When I uninstall php7 and install php5, the phpinfo() page still shows php7, and I still don't know why. Fortunately, I installed php5 successfully finally. The best way to do it is to use wget. Yum is not very useful because you can't control the direction flexiably. Using wget, you can't get a tar.gz file in the current directory, and you just need to unzip it, you will get a folder of the same name. Then, using configure you can choose the directory. 
+
+reference: the LAMP instruction, part php in my github. and some others' that uses wget.
+
+After I get the php5, I can install the modules.
+Two ways:
+1. /usr/local/php/bin/
+command: ./pecl search "filename"
+command: ./pecl install "filename"
+and you can get a directory that installed the xxx.so or xxx.dll, 
+
+2. in the folder that you unzip the php5.tar.gz file, there is a module folder.
+/root/php5.x.x/ext/
+you can find all the modules you need, you just need to install them to /usr/local/php/include/ext, 
+the way to do it is through ./configure
+example:
+$ cd /root/software/php-5.6.5
+$ cd ext/gd
+$ /usr/local/php/bin/phpize
+$ ./configure --with-php-config=/usr/local/php/bin/php-config --with-png-dir --with-freetype-dir --with-jpeg-dir --with-gd
+$ make
+$ make install
+
+复制代码
+这时会返回 安装gd的位置
+
+ /usr/php/lib/php/extensions/no-debug-zts-20131226/gd.so
+然后打开php.ini
+
+在
+
+;extension=/path/to/extension/msql.so
+附近添加在一行
+
+extension=/usr/php/lib/php/extensions/no-debug-zts-20131226/gd.so
+保存重启 apache 服务器
+
+
+A very IMPORTANT file: /etc/php.ini, you can add extensions in it.
+A very IMPORTANT file: /etc/httpd/httpd.conf, you can choose the web direction in it.
+
+
+Some reference:
+https://www.cnblogs.com/zjhblogs/p/6004254.html (useful)
+https://blog.csdn.net/cymen/article/details/72885545 (useful)
+http://blog.51cto.com/ccj168/2084441
+https://blog.csdn.net/rain_yunlx/article/details/79478985
+
+
+- Owncloud: Everyone can read your data, (something like that)
+modify the authority: chmod -R 770 $PATH
+(When I uninstalled the owncloud and install again, I didn't use it, I think)
+
