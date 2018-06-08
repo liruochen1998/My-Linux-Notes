@@ -30,7 +30,7 @@ chown –R apache:apache $owncloud_path
 $chmod –R 777 $owncloud_path  
 
 - Owncloud: can't read the modules:
-zip module, gd module, cURL module, intl module
+zip module(need reliance libzib), gd module(need a lot of reliance), cURL module, intl module(can't install on php7)
 This is very complicated to solve
 
 At first, my php is version 7, and I can't install intl.so because some route of some files were modified by php7, so I try to went back to php5, and it takes a lot of time. When I uninstall php7 and install php5, the phpinfo() page still shows php7, and I still don't know why. Fortunately, I installed php5 successfully finally. The best way to do it is to use wget. Yum is not very useful because you can't control the direction flexiably. Using wget, you can't get a tar.gz file in the current directory, and you just need to unzip it, you will get a folder of the same name. Then, using configure you can choose the directory. 
@@ -80,7 +80,7 @@ https://www.cnblogs.com/zjhblogs/p/6004254.html (useful)
 https://blog.csdn.net/cymen/article/details/72885545 (useful)
 http://blog.51cto.com/ccj168/2084441
 https://blog.csdn.net/rain_yunlx/article/details/79478985
-
+https://www.orgleaf.com/135.html (as a whole, useful)
 
 - Owncloud: Everyone can read your data, (something like that)
 modify the authority: chmod -R 770 $PATH
