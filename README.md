@@ -1,6 +1,6 @@
 # Linux Practice Notes
 May 22th, 2018, I started my intership in Beijing, I got a virtual machine for me to practice the operating system - **Linux CentOS 7**.
-Some days after, I purchesd my own VPS from [Vultr] (https://www.vultr.com/).
+Some days after, I purchesd my own VPS from [Vultr](https://www.vultr.com/).
 
 ## Catalog
 
@@ -24,17 +24,17 @@ Some days after, I purchesd my own VPS from [Vultr] (https://www.vultr.com/).
 
 ### Operation
 #### <a name="1">ssh: security shell</a>
-This is the very first step to login to your VPS.
+This is the very first step to login to your VPS.  
 `ssh -l root ip-address`
 #### <a name="2">scp: transfer files from PC and VPS</a>
-Using this can tranfer files from your PC to your VPS and vice versa.
+Using this can tranfer files from your PC to your VPS and vice versa.  
 `scp file-name root@ip-address :/desire-route`
 
 ### Environment
 #### <a name="3">LAMP: Linux + Apache + MySQL + PHP</a>
-This is the basic environment and structure to build web services.
+This is the basic environment and structure to build web services.  
 #### <a name="4">JDK: Java SE Development Kit</a>
-This is the environment of **Java SE** services.
+This is the environment of **Java SE** services.   
 
 ### Application
 #### <a name="5">Wordpress</a>
