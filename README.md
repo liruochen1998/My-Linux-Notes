@@ -23,27 +23,27 @@ Some days after, I purchesd my own VPS from [Vultr](https://www.vultr.com/).
 ## Content
 
 ### Operation
-#### <a name="1">ssh: security shell</a>
+#### <a name="1">[ssh: security shell](https://github.com/liruochen1998/server_practice/blob/master/ssh)</a>
 This is the very first step to login to your VPS.  
 `ssh -l root ip-address`
-#### <a name="2">scp: transfer files from PC and VPS</a>
+#### <a name="2">[scp: transfer files from PC and VPS](https://github.com/liruochen1998/server_practice/blob/master/scp)</a>
 Using this can tranfer files from your PC to your VPS and vice versa.  
 `scp file-name root@ip-address :/desire-route`
 
 ### Environment
-#### <a name="3">LAMP: Linux + Apache + MySQL + PHP</a>
-This is the basic environment and structure to build web services.  
-#### <a name="4">JDK: Java SE Development Kit</a>
-This is the environment of **Java SE** services.   
+#### <a name="3">[LAMP: Linux + Apache + MySQL + PHP](https://github.com/liruochen1998/server_practice/blob/master/LAMP)</a>
+This is the basic environment and structure to build web services.
+#### <a name="4">[JDK: Java SE Development Kit](https://github.com/liruochen1998/server_practice/blob/master/jdk)</a>
+This is the environment of **Java SE** services.
 
 ### Application
-#### <a name="5">Wordpress</a>
+#### <a name="5">[Wordpress](https://github.com/liruochen1998/server_practice/blob/master/wordpress)</a>
 **WordPress** is a free and open-source content management system based on PHP and MySQL. It is easily established when building a website.
 
-#### <a name="6">OwnCloud</a>
+#### <a name="6">[OwnCloud](https://github.com/liruochen1998/server_practice/blob/master/owncloud)</a>
 **OwnCloud** is a suite of client–server software for creating file hosting services and using them. Similar Applications: **Dropbox**, **GoogleDrive**.
 
-#### <a name="7">Shadowsocks</a>
+#### <a name="7">[Shadowsocks](https://github.com/liruochen1998/server_practice/blob/master/ssr)</a>
 **Shadowsocks** is an open-source encrypted proxy project, widely used in mainland China to circumvent Internet censorship. 
 
 ## Endnote
