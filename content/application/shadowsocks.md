@@ -1,5 +1,5 @@
 # Shadowsocks
-
+![ENV](https://img.shields.io/badge/Linux-CentOS-brightgreen.svg)  
 ![Shadowsocks icon](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/pics/Shadowsocks_logo.png)
 
 ## Shadowsocks
