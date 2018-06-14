@@ -1,5 +1,8 @@
 # OwnCloud
 
+![ENV](https://img.shields.io/badge/ENV-LAMP-blue.svg) ![php5](https://img.shields.io/badge/PHP-5-brightgreen.svg) ![MySQL](https://img.shields.io/badge/MySQL-5.7-green.svg) 
+
+
 ![owncloud_logo](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/pics/owncloud_logo.png)
 
 **OwnCloud** is a suite of client–server software for creating file hosting services and using them. **ownCloud** is functionally very similar to the widely used **Dropbox**, with the primary functional difference being that the Server Edition of **ownCloud** is free and open-source, and thereby allowing anyone to install and operate it without charge on a private server. It also supports extensions that allow it to work like **Google Drive**, with online document editing, calendar and contact synchronization, and more. Its openness avoids enforced quotas on storage space or the number of connected clients, instead having hard limits defined only by the physical capabilities of the server.
