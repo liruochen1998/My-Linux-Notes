@@ -1,6 +1,6 @@
 # OwnCloud
 
-![owncloud_logo]()
+![owncloud_logo](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/pics/owncloud_logo.png)
 
 **OwnCloud** is a suite of client–server software for creating file hosting services and using them. **ownCloud** is functionally very similar to the widely used **Dropbox**, with the primary functional difference being that the Server Edition of **ownCloud** is free and open-source, and thereby allowing anyone to install and operate it without charge on a private server. It also supports extensions that allow it to work like **Google Drive**, with online document editing, calendar and contact synchronization, and more. Its openness avoids enforced quotas on storage space or the number of connected clients, instead having hard limits defined only by the physical capabilities of the server.
 
@@ -71,15 +71,16 @@ modify the permission of the directory:
 * `intl` module: very hard to install on `PHP7`, which is the reason that I recommend `PHP5`
 
 Two ways to install these modules:  
+
 1. In the directory `/usr/local/php/bin/`, you can use pecl to download and install easily.
+  	
+ ```		
+ $ ./pecl search file-name  
+ $ ./pecl install file-name
+ ```
+ After installation, you will get a directory that has your `xxx.so` or `xxx.dll`.  
 
-	$ ./pecl search file-name
-	$ ./pecl install file-name
-	
-After installation, you will get a directory that has your `xxx.so` or `xxx.dll`.
-
-
-2.In the folder that you unzip the `php5.tar.gz`, you can find a module folder `/root/php5/ext`. You will find all the modules(including what you installed or not installed)
+2. In the folder that you unzip the `php5.tar.gz`, you can find a module folder `/root/php5/ext`. You will find all the modules(including what you installed or not installed)
 
 ```
 $ cd /root/software/php-5.6.5/ext/gd
