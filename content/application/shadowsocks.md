@@ -48,3 +48,5 @@ When you want to start **SSR**, type `ssr` and you will see the user interface.
 ![UI screenshot](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/UI%20screenshot.png)
 
 
+## References
+[https://www.i5seo.com/mac-build-shadowsocksr-ssr.html](https://www.i5seo.com/mac-build-shadowsocksr-ssr.html)
