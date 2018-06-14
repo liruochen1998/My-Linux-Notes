@@ -1,6 +1,6 @@
 # Shadowsocks
 
-![Shadowsocks icon](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/Shadowsocks_logo.png)
+![Shadowsocks icon](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/pics/Shadowsocks_logo.png)
 
 ## Shadowsocks
 **Shadowsocks** is an open-source encrypted proxy project, widely used in mainland China to circumvent Internet censorship. It was created in 2012 by a Chinese programmer named "[clowwindy](https://web.archive.org/web/20120422191812/http://www.v2ex.com/t/32777)", and multiple implementations of the protocol have been made available since. 
@@ -45,7 +45,7 @@ $ ./bbr.sh
 ## Done!
 When you want to start **SSR**, type `ssr` and you will see the user interface. 
 
-![UI screenshot](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/UI%20screenshot.png)
+![UI screenshot](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/pics/UI%20screenshot.png)
 
 
 ## References
