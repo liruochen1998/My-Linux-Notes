@@ -1,5 +1,6 @@
 # WordPress
 
+![ENV](https://img.shields.io/badge/ENV-LAMP-blue.svg) ![MySQL](https://img.shields.io/badge/MySQL-5.7-brightgreen.svg)  
 ![wordpress icon](https://github.com/liruochen1998/My-Linux-Notes/blob/master/content/application/pics/wordpress_logo.png)  
 **WordPress** is a free and open-source content management system based on PHP and MySQL. To function, **WordPress** has to be installed on a web server, which would either be part of an Internet hosting service or a network host in its own right.
 
